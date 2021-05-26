@@ -1,13 +1,11 @@
-# @maa/use-callback
+# use-callback-maa
 
 > better than useCallback that does not change its identity, with array callback mapper to get singular callbacks to array items
-
-[![NPM](https://img.shields.io/npm/v/@maa/use-callback.svg)](https://www.npmjs.com/package/@maa/use-callback) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save @maa/use-callback
+npm install --save use-callback-maa
 ```
 
 ## Demo
@@ -27,7 +25,7 @@ The dynamic ones are an API idea I had that avoids creating new function on ever
 ```tsx
 import React, { useState } from 'react'
 
-import { useFixedCallback } from '@maa/use-callback'
+import { useFixedCallback } from 'use-callback-maa'
 
 // React.memo in conjunction with useFixedCallback will prevent <Child/> from rerendering on click
 const Child = React.memo(({ onClick, label }) => {
@@ -58,7 +56,7 @@ const App = () => {
 ```tsx
 import React, { useState } from 'react'
 
-import { useBindedCallback } from '@maa/use-callback'
+import { useBindedCallback } from 'use-callback-maa'
 
 // React.memo in conjunction with useBindedCallback will prevent <Child/> from rerendering on click
 const Child = React.memo(({ onClick, label }) => {
@@ -101,7 +99,7 @@ The hooks with dynamic in their name use a new API to avoid re creating the hand
 ```tsx
 import React, { useState } from 'react'
 
-import { useDynamicBindedCallback } from '@maa/use-callback'
+import { useDynamicBindedCallback } from 'use-callback-maa'
 
 // React.memo in conjunction with useDynamicBindedCallback will prevent <Child/> from rerendering on click
 const Child = React.memo(({ onClick, label }) => {
@@ -144,7 +142,7 @@ Note the keyGetter is only set once on first render so please keep it constant t
 ```tsx
 import React, { useState } from 'react'
 
-import { useBindedCallbackMapper } from '@maa/use-callback'
+import { useBindedCallbackMapper } from 'use-callback-maa'
 
 // React.memo in conjunction with useBindedCallbackMapper will prevent <Child/> from rerendering on click
 const Child = React.memo(({ onClick, label }) => {
@@ -220,7 +218,7 @@ const App = () => {
 ```tsx
 import React, { useState } from 'react'
 
-import { useDynamicBindedCallbackMapper } from '@maa/use-callback'
+import { useDynamicBindedCallbackMapper } from 'use-callback-maa'
 
 // React.memo in conjunction with useDynamicBindedCallbackMapper will prevent <Child/> from rerendering on click
 const Child = React.memo(({ onClick, label }) => {

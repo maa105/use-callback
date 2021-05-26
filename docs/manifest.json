@@ -1,6 +1,6 @@
 {
-  "short_name": "@maa/use-callback",
-  "name": "@maa/use-callback",
+  "short_name": "use-callback-maa",
+  "name": "use-callback-maa",
   "icons": [
     {
       "src": "favicon.ico",

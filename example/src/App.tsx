@@ -6,7 +6,7 @@ import {
   useDynamicBindedCallback,
   useBindedCallbackMapper,
   useDynamicBindedCallbackMapper
-} from '@maa/use-callback'
+} from 'use-callback-maa'
 
 type ChildProps = {
   label: string
