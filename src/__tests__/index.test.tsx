@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react'
 import { fireEvent, render } from '@testing-library/react'
-import useCallback from '../useCallback'
+import useFixedCallback from '../useFixedCallback'
 import useBindedCallback from '../useBindedCallback'
 import useDynamicBindedCallback from '../useDynamicBindedCallback'
 import useBindedCallbackMapper from '../useBindedCallbackMapper'
 import useDynamicBindedCallbackMapper from '../useDynamicBindedCallbackMapper'
 
-describe('useCallback', () => {
+describe('useFixedCallback', () => {
   const initTest = () => {
     const callbacks: any[] = []
     const Child = ({ onClick, children }: any) => {
@@ -14,7 +14,7 @@ describe('useCallback', () => {
     }
     const TestComponent = ({ onClick }: any) => {
       const [count, setCount] = useState(0)
-      const callback = useCallback((e) => {
+      const callback = useFixedCallback((e) => {
         e.persist()
         setCount(count + 1)
         return onClick(count, e)

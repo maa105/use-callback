@@ -8,9 +8,14 @@
   "homepage": "https://github.com/maa105/use-callback",
   "keywords": [
     "useCallback",
+    "useFixedCallback",
+    "useConstantCallback",
+    "useImmutableCallback",
+    "constant callback",
+    "fixed callback",
+    "immutable callback",
     "react",
     "callback",
-    "fixed callback",
     "hooks",
     "react hooks",
     "callback array"

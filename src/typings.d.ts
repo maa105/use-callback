@@ -24,7 +24,7 @@ export type MapFunction = (
   array: Array<Object>
 ) => any
 
-type UseCallbackState = {
+type UseFixedCallbackState = {
   handler: Handler
   callback: Callback
 }

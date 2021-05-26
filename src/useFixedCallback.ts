@@ -1,8 +1,8 @@
 import { useRef } from 'react'
-import { Handler, UseCallbackState } from './typings'
+import { Handler, UseFixedCallbackState } from './typings'
 
-const useCallback = (handler: Handler) => {
-  const ref = useRef<UseCallbackState>()
+const useFixedCallback = (handler: Handler) => {
+  const ref = useRef<UseFixedCallbackState>()
   const current = ref.current
   if (current) {
     current.handler = handler
@@ -19,4 +19,4 @@ const useCallback = (handler: Handler) => {
   return callback
 }
 
-export default useCallback
+export default useFixedCallback

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 
 import {
-  useCallback as useFixedCallback,
+  useFixedCallback,
   useBindedCallback,
   useDynamicBindedCallback,
   useBindedCallbackMapper,
@@ -30,7 +30,7 @@ const Child = React.memo(({ onClick, label }: ChildProps) => {
   )
 })
 
-const UseCallbackTest = () => {
+const UseFixedCallbackTest = () => {
   const [counter, setCounter] = useState(0)
   const onClick = useFixedCallback((e: React.MouseEvent) => {
     e.stopPropagation()
@@ -250,8 +250,8 @@ const App = () => {
       </div>
       <h2>Tests</h2>
       <hr />
-      useCallback:
-      <UseCallbackTest />
+      useFixedCallback:
+      <UseFixedCallbackTest />
       <hr />
       useBindedCallback:
       <UseBindedCallbackTest />
