@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useBindedCallbackMapper callback identiy remains the same 1`] = `"<div data-testid=\\"root\\"><span data-testid=\\"counter-value\\">0</span><button data-testid=\\"child-button\\">Item1<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item2<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item3<br>[RenderCount:1]</button></div>"`;
+
+exports[`useBindedCallbackMapper callback identiy remains the same 2`] = `"<div data-testid=\\"root\\"><span data-testid=\\"counter-value\\">1</span><button data-testid=\\"child-button\\">Item1<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item2<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item3<br>[RenderCount:1]</button></div>"`;
+
+exports[`useBindedCallbackMapper callback identiy remains the same 3`] = `"<div data-testid=\\"root\\"><span data-testid=\\"counter-value\\">2</span><button data-testid=\\"child-button\\">Item1<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item2<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item3<br>[RenderCount:1]</button></div>"`;
+
+exports[`useBindedCallbackMapper callback identiy remains the same 4`] = `"<div data-testid=\\"root\\"><span data-testid=\\"counter-value\\">3</span><button data-testid=\\"child-button\\">Item1<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item2<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item3<br>[RenderCount:1]</button></div>"`;
+
+exports[`useDynamicBindedCallbackMapper callback identiy remains the same 1`] = `"<div data-testid=\\"root\\"><span data-testid=\\"counter-value\\">0</span><button data-testid=\\"child-button\\">Item1<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item2<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item3<br>[RenderCount:1]</button></div>"`;
+
+exports[`useDynamicBindedCallbackMapper callback identiy remains the same 2`] = `"<div data-testid=\\"root\\"><span data-testid=\\"counter-value\\">1</span><button data-testid=\\"child-button\\">Item1<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item2<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item3<br>[RenderCount:1]</button></div>"`;
+
+exports[`useDynamicBindedCallbackMapper callback identiy remains the same 3`] = `"<div data-testid=\\"root\\"><span data-testid=\\"counter-value\\">2</span><button data-testid=\\"child-button\\">Item1<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item2<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item3<br>[RenderCount:1]</button></div>"`;
+
+exports[`useDynamicBindedCallbackMapper callback identiy remains the same 4`] = `"<div data-testid=\\"root\\"><span data-testid=\\"counter-value\\">3</span><button data-testid=\\"child-button\\">Item1<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item2<br>[RenderCount:1]</button><button data-testid=\\"child-button\\">Item3<br>[RenderCount:1]</button></div>"`;
