@@ -10,7 +10,7 @@ npm install --save use-callback-maa
 
 ## Demo
 
-[See demo](https://maa105.github.io/use-callback/docs/)
+[See demo](https://maa105.github.io/use-callback/)
 
 ## Usage
 
