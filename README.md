@@ -18,7 +18,7 @@ Below is all the hooks provided. Personally I use `useFixedCallback` and `useFix
 
 The binded ones I use when the handler is not in the scope of the component and thus I need to send it the latest version of some select props.
 
-The dynamic ones are an API idea I had that avoids creating new function on every render (optimization? needs profiling). The dynamic ones are nessessarily binded since the handler is not recreated on each render thus it ca not see the latest props, therfore you need to supply the props to the handler by binding them (see below example).
+The dynamic ones are an API idea I had that avoids creating new function on every render (optimization? needs profiling). The dynamic ones are nessessarily binded since the handler is not recreated on each render thus it can not see the latest props, therfore you need to supply the props to the handler by binding them (see below example).
 
 ### useFixedCallback(handler)
 
@@ -51,7 +51,7 @@ const App = () => {
 }
 ```
 
-### useFixedCallbackMapper(handler, keyGetter: string | KeyGetter, ...bindArgs)
+### useFixedCallbackMapper(handler, keyGetter: string | KeyGetter)
 
 This method creates a mapper function that can be then used to `map` an array and provide each item in that array with a fixed identity callback. Note each item's identity is obtained using the keyGetter (which is kindof like lodash's iteratee)
 
