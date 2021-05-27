@@ -5,7 +5,7 @@ import {
   UseDynamicBindedCallbackState
 } from './typings'
 
-const useDynamicBindedCallback = (...bindArgs: any[]) => {
+const useDynamicBindedCallback = (...bindArgs: any[]): DynamicCallback => {
   const ref = useRef<UseDynamicBindedCallbackState>()
   const current = ref.current
   if (current) {

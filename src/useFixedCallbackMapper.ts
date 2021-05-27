@@ -5,13 +5,14 @@ import {
   MapFunction,
   UseFixedCallbackMapperState,
   UseCallbackMapperItemsState,
-  UseCallbackMapperItemState
+  UseCallbackMapperItemState,
+  Mapper
 } from './typings'
 
 const useFixedCallbackMapper = (
   handler: Handler,
   keyGetter: string | KeyGetter
-) => {
+): Mapper => {
   const ref = useRef<UseFixedCallbackMapperState>()
   const current = ref.current
   if (current) {

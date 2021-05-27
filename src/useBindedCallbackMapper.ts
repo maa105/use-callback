@@ -3,6 +3,7 @@ import {
   Handler,
   KeyGetter,
   MapFunction,
+  Mapper,
   UseBindedCallbackMapperState,
   UseCallbackMapperItemsState,
   UseCallbackMapperItemState
@@ -12,7 +13,7 @@ const useBindedCallbackMapper = (
   handler: Handler,
   keyGetter: string | KeyGetter,
   ...bindArgs: any[]
-) => {
+): Mapper => {
   const ref = useRef<UseBindedCallbackMapperState>()
   const current = ref.current
   if (current) {

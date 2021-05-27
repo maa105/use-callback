@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import {
+  DynamicMapper,
   Handler,
   KeyGetter,
   MapFunction,
@@ -8,7 +9,7 @@ import {
   UseDynamicBindedCallbackMapperState
 } from './typings'
 
-const useDynamicBindedCallbackMapper = (...bindArgs: any[]) => {
+const useDynamicBindedCallbackMapper = (...bindArgs: any[]): DynamicMapper => {
   const ref = useRef<UseDynamicBindedCallbackMapperState>()
   const current = ref.current
   if (current) {

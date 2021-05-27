@@ -1,7 +1,7 @@
 import { useRef } from 'react'
-import { Handler, UseBindedCallbackState } from './typings'
+import { Callback, Handler, UseBindedCallbackState } from './typings'
 
-const useBindedCallback = (handler: Handler, ...bindArgs: any[]) => {
+const useBindedCallback = (handler: Handler, ...bindArgs: any[]): Callback => {
   const ref = useRef<UseBindedCallbackState>()
   const current = ref.current
   if (current) {

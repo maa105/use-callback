@@ -1,6 +1,6 @@
 {
   "name": "use-callback-maa",
-  "version": "0.0.5",
+  "version": "0.0.10",
   "description": "better useCallback with helpers",
   "author": "maa105",
   "license": "MIT",
@@ -23,11 +23,12 @@
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
+  "typings": "dist/index.d.ts",
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "build": "microbundle-crl --no-compress --format modern,cjs && shx cp src/typings.d.ts dist",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
@@ -70,6 +71,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
+    "shx": "^0.3.3",
     "typescript": "^3.9.9"
   },
   "files": [

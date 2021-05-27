@@ -1,17 +1,14 @@
 export type Handler = (...args: any[]) => any
 export type Callback = (...args: any[]) => any
-export type KeyGetter = (arg0: Object) => string
+export type KeyGetter = (arg0: any) => string
 
 export type DynamicCallback = {
   (...args: any[]): any
   setHandler?: (handler: Handler) => void
 }
-export type Mapper = (
-  array: Array<Object>,
-  mapFunction: MapFunction
-) => Array<any>
+export type Mapper = (array: Array<any>, mapFunction: MapFunction) => Array<any>
 export type DynamicMapper = {
-  (array: Array<Object>, mapFunction: MapFunction): Array<any>
+  (array: Array<any>, mapFunction: MapFunction): Array<any>
   setHandler?: (handler: Handler) => void
   setKeyGetter?: (keyGetter: string | KeyGetter) => void
 }
@@ -19,9 +16,9 @@ export type DynamicMapper = {
 export type MapFunction = (
   key: string,
   callback: Callback,
-  item: Object,
+  item: any,
   index: number,
-  array: Array<Object>
+  array: Array<any>
 ) => any
 
 type UseFixedCallbackState = {
@@ -49,13 +46,13 @@ export type UseBindedCallbackMapperState = {
 }
 export type UseDynamicBindedCallbackMapperState = {
   handler?: Handler
-  getKey?: (obj: Object) => string
+  getKey?: (obj: any) => string
   mapper: DynamicMapper
   bindArgs: any[]
 }
 export type UseCallbackMapperItemState = {
   count: number
-  item: Object
+  item: any
   callback: Callback
 }
 export type UseCallbackMapperItemsState = {
