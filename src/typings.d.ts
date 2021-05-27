@@ -38,6 +38,10 @@ type UseDynamicBindedCallbackState = {
   callback: DynamicCallback
   bindArgs: any[]
 }
+export type UseFixedCallbackMapperState = {
+  handler: Handler
+  mapper: Mapper
+}
 export type UseBindedCallbackMapperState = {
   handler: Handler
   mapper: Mapper

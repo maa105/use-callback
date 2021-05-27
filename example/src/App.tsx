@@ -4,6 +4,7 @@ import {
   useFixedCallback,
   useBindedCallback,
   useDynamicBindedCallback,
+  useFixedCallbackMapper,
   useBindedCallbackMapper,
   useDynamicBindedCallbackMapper
 } from 'use-callback-maa'
@@ -108,6 +109,101 @@ const UseDynamicBindedCallbackTest = () => {
   )
 }
 
+const UseFixedCallbackMapperTest = () => {
+  const [counter, setCounter] = useState(0)
+  const [items, setItems] = useState(() => [
+    { id: '1', label: 'Item 1' },
+    { id: '2', label: 'Item 2' },
+    { id: '3', label: 'Item 3' }
+  ])
+
+  const mapper = useFixedCallbackMapper((item: Item, e: React.MouseEvent) => {
+    e.stopPropagation()
+    setCounter(counter + 1)
+    if (counter % 6 === 1) {
+      setItems(
+        items.map((itm: Item) => {
+          return itm.id === item.id
+            ? {
+                ...itm,
+                label: `${itm.label.split('[')[0]}[Updated@${counter + 1}]`
+              }
+            : itm
+        })
+      )
+    }
+    if (counter % 6 === 3) {
+      setItems([
+        ...items,
+        {
+          id: `${parseFloat(items[items.length - 1].id) + 1}`,
+          label: `Item ${parseFloat(items[items.length - 1].id) + 1}[NEW]`
+        }
+      ])
+    }
+    if (counter % 6 === 5) {
+      setItems(items.filter(({ id }: Item) => id !== item.id))
+    }
+  }, 'id')
+
+  return (
+    <div>
+      <b>Every second click will do something.</b>{' '}
+      <i>
+        Cycled actions: update clicked -&gt; create new -&gt; delete clicked
+      </i>
+      <div>Counter: {counter}</div>
+      {mapper(
+        items,
+        (
+          key: string,
+          callback: React.MouseEventHandler,
+          item: Item
+          // i: number,
+          // items: Items
+        ) => (
+          <Child key={key} onClick={callback} label={item.label} />
+        )
+      )}
+    </div>
+  )
+}
+
+const useBindedCallbackMapperHandler = (
+  item: Item,
+  counter: number,
+  setCounter: React.Dispatch<React.SetStateAction<number>>,
+  items: Items,
+  setItems: React.Dispatch<React.SetStateAction<Items>>,
+  e: React.MouseEvent
+) => {
+  e.stopPropagation()
+  setCounter(counter + 1)
+  if (counter % 6 === 1) {
+    setItems(
+      items.map((itm: Item) => {
+        return itm.id === item.id
+          ? {
+              ...itm,
+              label: `${itm.label.split('[')[0]}[Updated@${counter + 1}]`
+            }
+          : itm
+      })
+    )
+  }
+  if (counter % 6 === 3) {
+    setItems([
+      ...items,
+      {
+        id: `${parseFloat(items[items.length - 1].id) + 1}`,
+        label: `Item ${parseFloat(items[items.length - 1].id) + 1}[NEW]`
+      }
+    ])
+  }
+  if (counter % 6 === 5) {
+    setItems(items.filter(({ id }: Item) => id !== item.id))
+  }
+}
 const UseBindedCallbackMapperTest = () => {
   const [counter, setCounter] = useState(0)
   const [items, setItems] = useState(() => [
@@ -117,38 +213,12 @@ const UseBindedCallbackMapperTest = () => {
   ])
 
   const mapper = useBindedCallbackMapper(
-    (
-      item: Item,
-      /*, binded, args, will, show, here, */ e: React.MouseEvent
-    ) => {
-      e.stopPropagation()
-      setCounter(counter + 1)
-      if (counter % 6 === 1) {
-        setItems(
-          items.map((itm: Item) => {
-            return itm.id === item.id
-              ? {
-                  ...itm,
-                  label: `${itm.label.split('[')[0]}[Updated@${counter + 1}]`
-                }
-              : itm
-          })
-        )
-      }
-      if (counter % 6 === 3) {
-        setItems([
-          ...items,
-          {
-            id: `${parseFloat(items[items.length - 1].id) + 1}`,
-            label: `Item ${parseFloat(items[items.length - 1].id) + 1}[NEW]`
-          }
-        ])
-      }
-      if (counter % 6 === 5) {
-        setItems(items.filter(({ id }: Item) => id !== item.id))
-      }
-    },
-    'id' /*, binded, args, comes, here */
+    useBindedCallbackMapperHandler,
+    'id',
+    counter,
+    setCounter,
+    items,
+    setItems
   )
 
   return (
@@ -243,7 +313,7 @@ const App = () => {
     <div>
       <h2>Note</h2>
       <div>
-        Render count should nerver change for the first 4. The last 2 render
+        Render count should nerver change for the first 4. The last 3 render
         count only change when label is updated (denoted by
         [Updates@&lt;number&gt;]).{' '}
         <i>Counter is incremented by 1 on each click</i>
@@ -261,6 +331,9 @@ const App = () => {
       <hr />
       useDynamicBindedCallback:
       <UseDynamicBindedCallbackTest />
+      <hr />
+      useFixedCallbackMapper:
+      <UseFixedCallbackMapperTest />
       <hr />
       useBindedCallbackMapper:
       <UseBindedCallbackMapperTest />
